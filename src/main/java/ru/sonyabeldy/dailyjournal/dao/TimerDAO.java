@@ -33,10 +33,8 @@ public class TimerDAO {
     @Transactional
     public void addEndTime(Timer timer) {
         Session session = sessionFactory.getCurrentSession();
-
-//        Timer timer = ((BigInteger) session.createSQLQuery("SELECT LAST_INSERT_ID()").uniqueResult()).longValue();
-//        session.merge(timer);
-        session.persist(timer);
+        Timer updatedTimer = session.get(Timer.class, timer.getId());
+        updatedTimer.setEndTime(timer.getEndTime());
 
     }
 }

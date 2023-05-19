@@ -36,7 +36,6 @@ public class TimerController {
         Date date = new Date();
         Timestamp timestamp = new Timestamp(date.getTime());
 
-
         timer.setStartTime(timestamp);
         timerDAO.save(timer);
 
